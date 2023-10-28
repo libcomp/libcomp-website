@@ -1,0 +1,21 @@
+html {
+  padding: 2em;
+  @media (max-width: 40em) {
+    padding: 1em;
+  }
+}
+
+main {
+  max-width: 80em;
+  margin: auto;
+  margin-top: 4em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
+}
