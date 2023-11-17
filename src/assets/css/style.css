@@ -44,6 +44,9 @@ header {
   @media (max-width: 40em) {
     font-size: var(--font-scale4);
   }
+  & b {
+    font-weight: 800;
+  }
 }
 
 #artefacts {
