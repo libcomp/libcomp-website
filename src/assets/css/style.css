@@ -3,30 +3,34 @@
 @import "color.css";
 @import "typography.css";
 
-body {
-  overflow-y: auto;
-}
-
 header {
-  font-size: var(--font-scale1);
-  margin: auto;
-  font-family: "Canela Text Trial", serif;
-  font-weight: 700;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
-  & #clf {
-    text-decoration: none;
-    word-spacing: 100vw;
-    border-left: 7px solid var(--col-red);
-    padding-left: 0.5em;
+  & #lc {
+    font-size: var(--font-scale1);
+    font-family: "Noto Sans Mono", monospace;
+    font-variation-settings: "wght" 400;
+    transition: font-variation-settings 0.3s ease;
+    padding: 0.2em;
+    & a {
+      text-decoration: none;
+    }
+    & #caret {
+      margin-top: 2em;
+      color: red;
+      background-color: black;
+    }
+    @media (max-width: 40em) {
+      font-size: var(--font-scale0);
+    }
   }
-  & :last-child {
-    white-space: nowrap;
-    font-weight: 400;
+  & #lc:hover {
+    font-variation-settings: "wght" 700;
   }
-  @media (max-width: 40em) {
-    font-size: var(--font-scale0);
+
+  & #meme {
+    font-size: var(--font-scale4);
   }
 }
 
@@ -42,14 +46,13 @@ header {
   }
 }
 
-#posts {
+#artefacts {
   margin-top: 2em;
   display: grid;
-  grid-gap: 16px;
+  grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  & .post-card {
+  & .artefact-card {
     font-family: "Canela Text Trial", serif;
-    max-width: 30em;
     background-color: #fcfbf7;
     border: 1px solid #e5e4df;
     box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.02);
@@ -66,6 +69,43 @@ header {
       font-family: "Canela Deck Trial", serif;
       font-size: var(--font-scale1);
       font-weight: 400;
+    }
+  }
+}
+#intro {
+  display: grid;
+  grid-gap: 1rem;
+
+  grid-template-columns: 2fr 1fr;
+  @media (max-width: 40em) {
+    grid-template-columns: 1fr;
+  }
+  & #links {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.6) 100%);
+    & #inner {
+      background: var(--col-bg);
+      margin-top: 2px;
+      margin-right: 2px;
+      height: 100%;
+      padding: 0.5em;
+    }
+    font-size: var(--font-scale2);
+    & a {
+      text-decoration: none;
+    }
+    & li {
+      margin-bottom: 0.5em;
+      text-align: right;
+      font-family: "Noto Sans Mono", monospace;
+      font-variation-settings: "wght" 600;
+      opacity: 0.75;
+      transition:
+        font-variation-settings 0.3s ease-out,
+        opacity 0.3s ease-out;
+    }
+    & li:hover {
+      font-variation-settings: "wght" 900;
+      opacity: 1;
     }
   }
 }

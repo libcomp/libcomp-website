@@ -1,0 +1,6 @@
+---
+title: Wooooooo!
+---
+Some *italics* in the blog beginning...
+
+And here is some post content...

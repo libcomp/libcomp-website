@@ -10,12 +10,16 @@
   --font-scale0: 1rem;
 }
 
-p {
+p,
+li {
   font-family: "Canela Text Trial", sans-serif;
   font-size: var(--font-scale1);
   line-height: 1.5em;
   font-weight: 300;
   margin-bottom: 1em;
+}
+li {
+  margin-bottom: 0em;
 }
 h1,
 h2,
@@ -67,5 +71,5 @@ i {
 
 b,
 strong {
-  font-weight: bold;
+  font-weight: 500;
 }

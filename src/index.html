@@ -1,0 +1,46 @@
+---
+layout: layout.html
+---
+
+<div id="welcome">
+  <b>LC</b> is a loose collective of researchers, artists, and activists working to liberate computing from capitalism.
+</div>
+
+<div id="intro">
+  <div id="para">
+    <p>We live under a <em>capitalist mode of computing</em>. The tools, languages, techniques, and assumptions of
+      digital systems and structured by economic forces that shape not just what we <em>can do</em>, but what we can <em>imagine
+        doing</em>. By separating <strong>production</strong> from <strong>use</strong>, producing <strong>inflexible
+        software</strong>, and slicing up computing into <strong>siloed apps</strong>, your agency is held back by a
+      tech industry that benefits from a population rendered <em>computationally passive</em>.</p>
+    <p>We seek to <em>catalyze discontent</em> with the state of computing and firmly believe that a better computing is
+      possible. Only by understanding the history of paths-not-taken and closely examining processes of production,
+      labor conditions, power structures, and ideological influences, can we understand the winding path towards a <em>liberatory
+        computing</em>.</p>
+  </div>
+  <ul id="links">
+    <div id="inner">
+      <li>
+        <a href="/library">
+          RESEARCH LIBRARY</a> ☞︎
+      </li>
+      <li>
+        <a href="/friends">
+          OTHER GROUPS</a> ☞︎
+      </li>
+      <li>
+        <a href="https://matrix.to/#/%23liberatory-computing:matrix.org">
+          MATRIX CHAT</a> ☞︎
+      </li>
+    </div>
+  </ul>
+</div>
+
+<ul id="artefacts">
+  {% for artefact in collections.artefacts %}
+  <li class="artefact-card">
+    <a href="{{ artefact.url }}">{{ artefact.data.title }}</a>
+    <p>{{ artefact.content }}</p>
+  </li>
+  {% endfor %}
+</ul>
