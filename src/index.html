@@ -9,7 +9,7 @@ layout: layout.html
 <div id="intro">
   <div id="para">
     <p>We live under a <em>capitalist mode of computing</em>. The tools, languages, techniques, and assumptions of
-      digital systems and structured by economic forces that shape not just what we <em>can do</em>, but what we can <em>imagine
+      digital systems are structured by economic forces that shape not just what we <em>can do</em>, but what we can <em>imagine
         doing</em>. By separating <strong>production</strong> from <strong>use</strong>, producing <strong>inflexible
         software</strong>, and slicing up computing into <strong>siloed apps</strong>, your agency is held back by a
       tech industry that benefits from a population rendered <em>computationally passive</em>.</p>
@@ -40,7 +40,7 @@ layout: layout.html
   {% for artefact in collections.artefacts %}
   <li class="artefact-card">
     <a href="{{ artefact.url }}">{{ artefact.data.title }}</a>
-    <p>{{ artefact.content }}</p>
+    <p>{{ artefact.content | truncate: 400 }}</p>
   </li>
   {% endfor %}
 </ul>
