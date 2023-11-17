@@ -40,7 +40,7 @@ layout: layout.html
   {% for artefact in collections.artefacts %}
   <li class="artefact-card">
     <a href="{{ artefact.url }}">{{ artefact.data.title }}</a>
-    <p>{{ artefact.content | truncate: 400 }}</p>
+    <p>{{ artefact.data.summary | truncate: 400 }}</p>
   </li>
   {% endfor %}
 </ul>
