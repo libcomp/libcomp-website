@@ -84,8 +84,10 @@ header {
     grid-template-columns: 1fr;
   }
   & #links {
+    border-radius: 0.25em;
     background: linear-gradient(45deg, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.6) 100%);
     & #inner {
+      border-radius: 0.2em;
       background: var(--col-bg);
       margin-top: 2px;
       margin-right: 2px;
@@ -110,5 +112,31 @@ header {
       font-variation-settings: "wght" 900;
       opacity: 1;
     }
+  }
+}
+
+.artefact-full {
+  max-width: 50em;
+  margin: auto;
+  & img {
+    width: 100%;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.05);
+  }
+  & p {
+    font-size: var(--font-scale0);
+    font-weight: 300;
+  }
+  & h1,
+  h2 {
+    font-family: "Canela Deck Trial", serif;
+    margin-top: 2em;
+  }
+  & h1 {
+    font-size: var(--font-scale3);
+    font-weight: 400;
+  }
+  & h2 {
+    font-size: var(--font-scale2);
+    font-weight: 400;
   }
 }
