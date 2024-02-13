@@ -159,12 +159,25 @@ header {
 }
 
 .noise {
-  border-radius: 0.5em;
-  padding: 3em;
+  /* border-radius: 100em; */
+  padding: 1em;
   margin-bottom: 3em;
   width: 400px;
   height: 400px;
-  filter: contrast(170%) brightness(1000%);
-  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0), rgb(0, 0, 0)),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 203 203' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.10'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  filter: contrast(250%) brightness(1000%);
+  transition: --a 1s;
+  mix-blend-mode: darken;
+
+  /* background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0), rgb(0, 0, 0)), */
+  /* background: conic-gradient(rgba(0, 0, 0, 0) var(--a), rgb(4, 26, 44)), url(./noise.svg); */
+  background: conic-gradient(rgba(0, 0, 0, 0) var(--a), rgb(4, 26, 44)), url(./noise.svg);
+}
+.noise:hover {
+  --a: 200deg;
+}
+
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: -20deg;
 }
