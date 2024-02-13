@@ -1,5 +1,6 @@
 ---
 title: Compostable Software
+tag: Articulation 🧱
 summary: Software design for disassembly and decomposition. GitHub is not a repository of knowledge — it is a landfill. Made mostly of software which has died, constructed from materials which cannot be decomposed. Dead software is the norm. An ever-growing landfill of ghosts is perpetuated by commercial interests who claim the rights to own systems after death. To advocate for compostable software is to challenge both its production and its afterlife — that software be constructed from decomposable materials, and that decomposition after death is not governed by a regime of private property.
 ---
 
