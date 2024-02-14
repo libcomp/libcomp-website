@@ -2,8 +2,7 @@
 layout: layout.html
 ---
 
-<div class="noise"></div>
-<div id="welcome">
+<div id="opening-sentence">
   <b>LC</b> is a loose collective of researchers, artists, and activists working to liberate computing from capitalism.
 </div>
 
@@ -19,31 +18,31 @@ layout: layout.html
       labor, and power in shaping the foundations of digital systems.</p>
   </div>
   <ul id="links">
-    <div id="inner">
-      <li>
-        <a href="/library">
-          RESEARCH LIBRARY</a> ☞︎
-      </li>
-      <li>
-        <a href="/friends">
-          OTHER GROUPS</a> ☞︎
-      </li>
-      <li>
-        <a href="https://matrix.to/#/%23liberatory-computing:matrix.org">
-          MATRIX CHAT</a> ☞︎
-      </li>
-    </div>
+    <li>
+      <a href="/library">
+        RESEARCH LIBRARY</a>
+    </li>
+    <li>
+      <a href="/friends">
+        OTHER GROUPS</a>
+    </li>
+    <li>
+      <a href="https://matrix.to/#/%23liberatory-computing:matrix.org">
+        MATRIX CHAT</a>
+    </li>
   </ul>
 </div>
 
-<ul id="artefacts">
+<ul id="artefact-previews">
   {% for artefact in collections.artefacts %}
-  <li class="artefact-card">
-    <span class="h-apart">
-      <a href="{{ artefact.url }}">{{ artefact.data.title }}</a>
-      <span id="tag">{{artefact.data.tag}}</span>
-    </span>
-    <p>{{ artefact.data.summary | truncate: 400 }}</p>
-  </li>
+  <a href="{{ artefact.url }}" style="text-decoration: none; color: black;">
+    <li class="artefact-card">
+      <span>
+        <span>{{ artefact.data.title }}</span>
+        <span id="tag">{{artefact.data.tag}}</span>
+      </span>
+      <p>{{ artefact.data.summary | truncate: 400 }}</p>
+    </li>
+  </a>
   {% endfor %}
 </ul>

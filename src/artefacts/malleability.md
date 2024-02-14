@@ -1,6 +1,6 @@
 ---
 title: Malleability
-tag: Vector ↗️
+tag: Vector
 summary: Something something...
 ---
 

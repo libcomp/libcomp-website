@@ -4,9 +4,34 @@
 @import "typography.css";
 
 header {
+  &::before,
+  &::after {
+    content: "";
+    flex-grow: 1;
+    background: red;
+    height: 5em;
+    align-self: center;
+    mix-blend-mode: darken;
+    box-shadow: inset 0px 0px 10px 5px rgba(255, 255, 255, 1);
+    filter: contrast(300%) brightness(200%);
+  }
+  &::before {
+    margin-left: 4em;
+    background: radial-gradient(circle at -50% 50%, rgba(105, 105, 105, 0.2), rgba(0, 0, 0, 0.3)), url(./noise.svg);
+  }
+  &::after {
+    margin-right: 4em;
+    background: radial-gradient(circle at 150% 50%, rgba(105, 105, 105, 0.2), rgba(0, 0, 0, 0.3)), url(./noise.svg);
+  }
+  mix-blend-mode: darken;
+  padding: 0.5em;
+  box-sizing: border-box;
+  border: 2px solid white;
+
+  /* background: rgb(30, 30, 30); */
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   & #lc {
     font-size: var(--font-scale1);
     font-family: "Noto Sans Mono", monospace;
@@ -16,11 +41,6 @@ header {
     & a {
       text-decoration: none;
     }
-    & #caret {
-      margin-top: 2em;
-      color: red;
-      background-color: black;
-    }
     @media (max-width: 40em) {
       font-size: var(--font-scale0);
     }
@@ -28,13 +48,9 @@ header {
   & #lc:hover {
     font-variation-settings: "wght" 700;
   }
-
-  & #meme {
-    font-size: var(--font-scale4);
-  }
 }
 
-#welcome {
+#opening-sentence {
   font-family: "Canela Deck Trial", serif;
   font-size: var(--font-scale5);
   line-height: 1.1em;
@@ -49,44 +65,6 @@ header {
   }
 }
 
-#artefacts {
-  margin-top: 2em;
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  & .artefact-card {
-    font-family: "Canela Text Trial", serif;
-    background-color: #fcfbf7;
-    border: 1px solid #e5e4df;
-    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.02);
-    border-radius: 0.25em;
-    padding: 0.75em;
-
-    & p {
-      font-size: var(--font-scale0);
-      font-weight: 300;
-      margin-bottom: 0;
-    }
-
-    & a {
-      text-transform: uppercase;
-      font-size: var(--font-scale0);
-      font-weight: 600;
-      font-family: "Noto Sans Mono", monospace;
-    }
-
-    & #tag {
-      text-transform: uppercase;
-      font-size: var(--font-scale0);
-      opacity: 0.5;
-      font-weight: 600;
-      font-family: "Noto Sans Mono", monospace;
-      white-space: nowrap;
-      /* overflow: hidden; */
-      /* text-overflow: ellipsis; */
-    }
-  }
-}
 #intro {
   display: grid;
   grid-gap: 1rem;
@@ -96,16 +74,12 @@ header {
     grid-template-columns: 1fr;
   }
   & #links {
-    border-radius: 0.25em;
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.6) 100%);
-    & #inner {
-      border-radius: 0.2em;
-      background: var(--col-bg);
-      margin-top: 2px;
-      margin-right: 2px;
-      height: 100%;
-      padding: 0.5em;
-    }
+    border-radius: 0.15em;
+    padding: 0.5em;
+    padding-top: 0.4em;
+    filter: contrast(300%) brightness(200%);
+    mix-blend-mode: darken;
+    background: radial-gradient(circle at 120% 0%, rgba(0, 0, 0, 0.284), rgba(255, 255, 255, 0)), url(./noise.svg);
     font-size: var(--font-scale2);
     & a {
       text-decoration: none;
@@ -113,9 +87,9 @@ header {
     & li {
       margin-bottom: 0.5em;
       text-align: right;
+      text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.1);
       font-family: "Noto Sans Mono", monospace;
       font-variation-settings: "wght" 600;
-      opacity: 0.75;
       transition:
         font-variation-settings 0.3s ease-out,
         opacity 0.3s ease-out;
@@ -123,6 +97,51 @@ header {
     & li:hover {
       font-variation-settings: "wght" 900;
       opacity: 1;
+    }
+  }
+}
+
+#artefact-previews {
+  margin-top: 2em;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  & .artefact-card {
+    font-family: "Canela Text Trial", serif;
+    background-color: #fcfbf7;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    border-radius: 0.25em;
+    padding: 0.75em;
+    text-align: justify;
+    filter: contrast(250%) brightness(120%);
+    transition:
+      --a 1s,
+      --noise-x 0s,
+      --noise-y 0s;
+    mix-blend-mode: darken;
+
+    background: radial-gradient(circle at var(--noise-x) var(--noise-y), rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.128)),
+      url(./noise.svg);
+
+    & p {
+      font-size: var(--font-scale0);
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+
+    & span {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: var(--font-scale0);
+      font-weight: 600;
+      font-family: "Noto Sans Mono", monospace;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    & #tag {
+      opacity: 0.4;
+      white-space: nowrap;
     }
   }
 }
@@ -153,31 +172,18 @@ header {
   }
 }
 
-.h-apart {
-  display: flex;
-  justify-content: space-between;
+.artefact-card:hover {
+  --noise-x: 50%;
+  --noise-y: 50%;
 }
 
-.noise {
-  /* border-radius: 100em; */
-  padding: 1em;
-  margin-bottom: 3em;
-  width: 400px;
-  height: 400px;
-  filter: contrast(250%) brightness(1000%);
-  transition: --a 1s;
-  mix-blend-mode: darken;
-
-  /* background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0), rgb(0, 0, 0)), */
-  /* background: conic-gradient(rgba(0, 0, 0, 0) var(--a), rgb(4, 26, 44)), url(./noise.svg); */
-  background: conic-gradient(rgba(0, 0, 0, 0) var(--a), rgb(4, 26, 44)), url(./noise.svg);
-}
-.noise:hover {
-  --a: 200deg;
-}
-
-@property --a {
-  syntax: "<angle>";
+@property --noise-x {
+  syntax: "<percentage>";
   inherits: false;
-  initial-value: -20deg;
+  initial-value: 50%;
+}
+@property --noise-y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 150%;
 }
