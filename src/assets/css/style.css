@@ -4,37 +4,45 @@
 @import "typography.css";
 
 header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  & #lc {
+  & #logo {
+    text-decoration: none;
+    margin-bottom: 1rem;
+    display: flex;
+  }
+  & #logo:hover {
+    cursor: pointer;
+    & #logo-wordmark {
+      font-variation-settings: "wght" 700;
+    }
+    & #logo-icon {
+      --noise-rotation: 200deg;
+    }
+  }
+  & #logo-wordmark {
     font-size: var(--font-scale1);
+    color: rgba(0, 0, 0, 0.75);
     font-family: "Noto Sans Mono", monospace;
     font-variation-settings: "wght" 400;
-    transition: font-variation-settings 0.3s ease;
+    transition: font-variation-settings 0.5s ease;
     padding: 0.2em;
-    & a {
-      text-decoration: none;
-    }
-    & #caret {
-      margin-top: 2em;
-      color: red;
-      background-color: black;
-    }
     @media (max-width: 40em) {
       font-size: var(--font-scale0);
     }
   }
-  & #lc:hover {
-    font-variation-settings: "wght" 700;
-  }
-
-  & #meme {
-    font-size: var(--font-scale4);
+  & #logo-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    filter: contrast(200%) brightness(200%);
+    transition: --noise-rotation 0.5s ease;
+    mix-blend-mode: darken;
+    box-shadow: inset 0px 0px 5px 5px rgba(255, 255, 255, 1);
+    background: conic-gradient(from var(--noise-rotation) at 50% 50%, rgba(255, 255, 255, 0), rgb(7, 35, 55)),
+      url(./noise.svg);
   }
 }
 
-#welcome {
+#opening-sentence {
   font-family: "Canela Deck Trial", serif;
   font-size: var(--font-scale5);
   line-height: 1.1em;
@@ -49,44 +57,6 @@ header {
   }
 }
 
-#artefacts {
-  margin-top: 2em;
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  & .artefact-card {
-    font-family: "Canela Text Trial", serif;
-    background-color: #fcfbf7;
-    border: 1px solid #e5e4df;
-    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.02);
-    border-radius: 0.25em;
-    padding: 0.75em;
-
-    & p {
-      font-size: var(--font-scale0);
-      font-weight: 300;
-      margin-bottom: 0;
-    }
-
-    & a {
-      text-transform: uppercase;
-      font-size: var(--font-scale0);
-      font-weight: 600;
-      font-family: "Noto Sans Mono", monospace;
-    }
-
-    & #tag {
-      text-transform: uppercase;
-      font-size: var(--font-scale0);
-      opacity: 0.5;
-      font-weight: 600;
-      font-family: "Noto Sans Mono", monospace;
-      white-space: nowrap;
-      /* overflow: hidden; */
-      /* text-overflow: ellipsis; */
-    }
-  }
-}
 #intro {
   display: grid;
   grid-gap: 1rem;
@@ -96,16 +66,12 @@ header {
     grid-template-columns: 1fr;
   }
   & #links {
-    border-radius: 0.25em;
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.6) 100%);
-    & #inner {
-      border-radius: 0.2em;
-      background: var(--col-bg);
-      margin-top: 2px;
-      margin-right: 2px;
-      height: 100%;
-      padding: 0.5em;
-    }
+    border-radius: 0.15em;
+    padding: 0.5em;
+    padding-top: 0.4em;
+    filter: contrast(300%) brightness(200%);
+    mix-blend-mode: darken;
+    background: radial-gradient(circle at 120% 0%, rgba(0, 0, 0, 0.284), rgba(255, 255, 255, 0)), url(./noise.svg);
     font-size: var(--font-scale2);
     & a {
       text-decoration: none;
@@ -113,9 +79,9 @@ header {
     & li {
       margin-bottom: 0.5em;
       text-align: right;
+      text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.1);
       font-family: "Noto Sans Mono", monospace;
       font-variation-settings: "wght" 600;
-      opacity: 0.75;
       transition:
         font-variation-settings 0.3s ease-out,
         opacity 0.3s ease-out;
@@ -123,6 +89,51 @@ header {
     & li:hover {
       font-variation-settings: "wght" 900;
       opacity: 1;
+    }
+  }
+}
+
+#artefact-previews {
+  margin-top: 2em;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  & .artefact-card {
+    font-family: "Canela Text Trial", serif;
+    background-color: #fcfbf7;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    border-radius: 0.25em;
+    padding: 0.75em;
+    text-align: justify;
+    filter: contrast(250%) brightness(120%);
+    transition:
+      --a 1s,
+      --noise-x 0s,
+      --noise-y 0s;
+    mix-blend-mode: darken;
+
+    background: radial-gradient(circle at var(--noise-x) var(--noise-y), rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.128)),
+      url(./noise.svg);
+
+    & p {
+      font-size: var(--font-scale0);
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+
+    & span {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: var(--font-scale0);
+      font-weight: 600;
+      font-family: "Noto Sans Mono", monospace;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    & #tag {
+      opacity: 0.4;
+      white-space: nowrap;
     }
   }
 }
@@ -153,18 +164,23 @@ header {
   }
 }
 
-.h-apart {
-  display: flex;
-  justify-content: space-between;
+.artefact-card:hover {
+  --noise-x: 50%;
+  --noise-y: 50%;
 }
 
-.noise {
-  border-radius: 0.5em;
-  padding: 3em;
-  margin-bottom: 3em;
-  width: 400px;
-  height: 400px;
-  filter: contrast(170%) brightness(1000%);
-  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0), rgb(0, 0, 0)),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 203 203' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.10'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+@property --noise-x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+@property --noise-y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --noise-rotation {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
 }
