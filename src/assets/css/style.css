@@ -4,49 +4,41 @@
 @import "typography.css";
 
 header {
-  &::before,
-  &::after {
-    content: "";
-    flex-grow: 1;
-    background: red;
-    height: 5em;
-    align-self: center;
-    mix-blend-mode: darken;
-    box-shadow: inset 0px 0px 10px 5px rgba(255, 255, 255, 1);
-    filter: contrast(300%) brightness(200%);
+  & #logo {
+    text-decoration: none;
+    margin-bottom: 1rem;
+    display: flex;
   }
-  &::before {
-    margin-left: 4em;
-    background: radial-gradient(circle at -50% 50%, rgba(105, 105, 105, 0.2), rgba(0, 0, 0, 0.3)), url(./noise.svg);
+  & #logo:hover {
+    cursor: pointer;
+    & #logo-wordmark {
+      font-variation-settings: "wght" 700;
+    }
+    & #logo-icon {
+      --noise-rotation: 200deg;
+    }
   }
-  &::after {
-    margin-right: 4em;
-    background: radial-gradient(circle at 150% 50%, rgba(105, 105, 105, 0.2), rgba(0, 0, 0, 0.3)), url(./noise.svg);
-  }
-  mix-blend-mode: darken;
-  padding: 0.5em;
-  box-sizing: border-box;
-  border: 2px solid white;
-
-  /* background: rgb(30, 30, 30); */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  & #lc {
+  & #logo-wordmark {
     font-size: var(--font-scale1);
+    color: rgba(0, 0, 0, 0.75);
     font-family: "Noto Sans Mono", monospace;
     font-variation-settings: "wght" 400;
-    transition: font-variation-settings 0.3s ease;
+    transition: font-variation-settings 0.5s ease;
     padding: 0.2em;
-    & a {
-      text-decoration: none;
-    }
     @media (max-width: 40em) {
       font-size: var(--font-scale0);
     }
   }
-  & #lc:hover {
-    font-variation-settings: "wght" 700;
+  & #logo-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    filter: contrast(200%) brightness(200%);
+    transition: --noise-rotation 0.5s ease;
+    mix-blend-mode: darken;
+    box-shadow: inset 0px 0px 5px 5px rgba(255, 255, 255, 1);
+    background: conic-gradient(from var(--noise-rotation) at 50% 50%, rgba(255, 255, 255, 0), rgb(7, 35, 55)),
+      url(./noise.svg);
   }
 }
 
@@ -185,5 +177,10 @@ header {
 @property --noise-y {
   syntax: "<percentage>";
   inherits: false;
-  initial-value: 150%;
+  initial-value: 100%;
+}
+@property --noise-rotation {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
 }
