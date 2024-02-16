@@ -75,6 +75,9 @@ header {
   grid-gap: 1rem;
   @media (max-width: 40em) {
     text-align: justify;
+    & p {
+      line-height: 1.3em;
+    }
   }
 
   grid-template-columns: 2fr 1fr;
@@ -124,7 +127,6 @@ header {
     border: 1px solid rgba(0, 0, 0, 0.02);
     border-radius: 0.25em;
     padding: 0.75em;
-    text-align: justify;
     filter: contrast(250%) brightness(120%);
     transition:
       --a 1s,
@@ -139,6 +141,7 @@ header {
       font-size: var(--font-scale0);
       font-weight: 300;
       margin-bottom: 0;
+      text-align: justify;
     }
 
     & span {
@@ -152,7 +155,7 @@ header {
     }
 
     & #tag {
-      opacity: 0.4;
+      opacity: 0.3;
       white-space: nowrap;
     }
     &:hover {
