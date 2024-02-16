@@ -4,41 +4,52 @@
 @import "typography.css";
 
 header {
+  display: flex;
+  @media (max-width: 40em) {
+    justify-content: center;
+  }
   & #logo {
     text-decoration: none;
-    margin-bottom: 1rem;
     display: flex;
-  }
-  & #logo:hover {
-    cursor: pointer;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+      & #logo-wordmark {
+        font-variation-settings: "wght" 900;
+      }
+      & #logo-icon {
+        --noise-rotation: 200deg;
+      }
+    }
+
+    & #filler-char {
+      opacity: 0.6;
+    }
+
     & #logo-wordmark {
-      font-variation-settings: "wght" 700;
+      font-size: var(--font-scale1);
+      font-family: "Noto Sans Mono", monospace;
+      text-transform: uppercase;
+      font-variation-settings: "wght" 350;
+      transition: font-variation-settings 0.5s ease;
+      padding: 0;
     }
     & #logo-icon {
-      --noise-rotation: 200deg;
+      width: 70px;
+      height: 70px;
+      transform: scale(1.2);
+      border-radius: 50%;
+      filter: contrast(200%) brightness(200%);
+      transition: --noise-rotation 0.5s ease;
+      mix-blend-mode: darken;
+      box-shadow: inset 0px 0px 5px 5px rgba(255, 255, 255, 1);
+      background: conic-gradient(from var(--noise-rotation) at 50% 50%, rgba(255, 255, 255, 0), rgb(7, 35, 55)),
+        url(./noise.svg);
+      margin-right: 0.5em;
+      @media (max-width: 40em) {
+        display: none;
+      }
     }
-  }
-  & #logo-wordmark {
-    font-size: var(--font-scale1);
-    color: rgba(0, 0, 0, 0.75);
-    font-family: "Noto Sans Mono", monospace;
-    font-variation-settings: "wght" 400;
-    transition: font-variation-settings 0.5s ease;
-    padding: 0.2em;
-    @media (max-width: 40em) {
-      font-size: var(--font-scale0);
-    }
-  }
-  & #logo-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    filter: contrast(200%) brightness(200%);
-    transition: --noise-rotation 0.5s ease;
-    mix-blend-mode: darken;
-    box-shadow: inset 0px 0px 5px 5px rgba(255, 255, 255, 1);
-    background: conic-gradient(from var(--noise-rotation) at 50% 50%, rgba(255, 255, 255, 0), rgb(7, 35, 55)),
-      url(./noise.svg);
   }
 }
 
@@ -49,17 +60,22 @@ header {
   color: var(--col-text);
   margin-bottom: 3rem;
   max-width: 15em;
-  @media (max-width: 40em) {
-    font-size: var(--font-scale4);
-  }
   & b {
     font-weight: 800;
+  }
+  @media (max-width: 40em) {
+    max-width: 100%;
+    font-size: var(--font-scale2);
+    margin-bottom: 0.5em;
   }
 }
 
 #intro {
   display: grid;
   grid-gap: 1rem;
+  @media (max-width: 40em) {
+    text-align: justify;
+  }
 
   grid-template-columns: 2fr 1fr;
   @media (max-width: 40em) {
@@ -74,21 +90,20 @@ header {
     background: radial-gradient(circle at 120% 0%, rgba(0, 0, 0, 0.284), rgba(255, 255, 255, 0)), url(./noise.svg);
     font-size: var(--font-scale2);
     & a {
+      margin-bottom: 0.5em;
+      font-family: "Noto Sans Mono", monospace;
       text-decoration: none;
+      font-variation-settings: "wght" 600;
+      transition: font-variation-settings 0.3s ease-out;
+      &:hover {
+        font-variation-settings: "wght" 900;
+        opacity: 1;
+      }
     }
     & li {
-      margin-bottom: 0.5em;
       text-align: right;
-      text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.1);
-      font-family: "Noto Sans Mono", monospace;
-      font-variation-settings: "wght" 600;
-      transition:
-        font-variation-settings 0.3s ease-out,
-        opacity 0.3s ease-out;
-    }
-    & li:hover {
-      font-variation-settings: "wght" 900;
-      opacity: 1;
+      white-space: nowrap;
+      overflow: hidden;
     }
   }
 }
@@ -97,9 +112,14 @@ header {
   margin-top: 2em;
   display: grid;
   grid-gap: 1rem;
+  & a {
+    display: flex;
+    height: 100%;
+  }
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   & .artefact-card {
     font-family: "Canela Text Trial", serif;
+    line-height: 1em;
     background-color: #fcfbf7;
     border: 1px solid rgba(0, 0, 0, 0.02);
     border-radius: 0.25em;
@@ -135,6 +155,11 @@ header {
       opacity: 0.4;
       white-space: nowrap;
     }
+    &:hover {
+      --noise-x: 50%;
+      --noise-y: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
   }
 }
 
@@ -162,11 +187,6 @@ header {
     font-size: var(--font-scale2);
     font-weight: 400;
   }
-}
-
-.artefact-card:hover {
-  --noise-x: 50%;
-  --noise-y: 50%;
 }
 
 @property --noise-x {
