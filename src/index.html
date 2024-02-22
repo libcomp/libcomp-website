@@ -33,15 +33,15 @@ layout: layout.html
   </ul>
 </div>
 
-<ul id="artefact-previews">
-  {% for artefact in collections.artefacts %}
-  <a href="{{ artefact.url }}" style="text-decoration: none; color: black;">
-    <li class="artefact-card">
+<ul id="artifact-previews">
+  {% for artifact in collections.artifacts %}
+  <a href="{{ artifact.url }}" style="text-decoration: none; color: black;">
+    <li class="artifact-card">
       <span>
-        <span>{{ artefact.data.title }}</span>
-        <span id="tag">{{artefact.data.tag}}</span>
+        <span>{{ artifact.data.title }}</span>
+        <span id="tag">{{artifact.data.tag}}</span>
       </span>
-      <p>{{ artefact.data.summary | truncate: 400 }}</p>
+      <p>{{ artifact.data.summary | truncate: 400 }}</p>
     </li>
   </a>
   {% endfor %}

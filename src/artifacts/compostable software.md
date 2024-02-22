@@ -17,9 +17,9 @@ summary: Software design for disassembly and decomposition. GitHub is not a repo
 - Incentivising systems which are made to be “nutritious” after death (toxic might be the other extreme) such that their parts are amenable to recomposition after some light transformation.
 - Composting reduces collective labor
 - reconceptualising digital waste -> reuse vs landfill
-    - github is mostly a landfill, a dump of undigestible artefacts of hard cognitive labor
+    - github is mostly a landfill, a dump of undigestible artifacts of hard cognitive labor
 
-# Narrative artefacts
+# Narrative artifacts
 - GitHub is not a repository of knowledge — it is a landfill. Made mostly of software which has died, constructed from materials which cannot be decomposed.
 - The production of software under capitalism casts the afterlife of computational labor as a walled garden of decay. Locked away, discarded, or sold to those with the weaponry to direct gardeners and protect the gardens walls.
 - The materials of software are brittle, resembling appliances and machines, easily breaking down into piles of rusting metal unless constantly maintained. - *Software is not soft* — for it is made of materials unsuitable for composting, for reuse, and re-organisation.

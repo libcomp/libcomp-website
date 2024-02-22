@@ -12,8 +12,10 @@ header {
     text-decoration: none;
     display: flex;
     align-items: center;
+    & #filler-char {
+      opacity: 0.6;
+    }
     &:hover {
-      cursor: pointer;
       & #logo-wordmark {
         font-variation-settings: "wght" 900;
       }
@@ -22,30 +24,25 @@ header {
       }
     }
 
-    & #filler-char {
-      opacity: 0.6;
-    }
-
     & #logo-wordmark {
       font-size: var(--font-scale1);
       font-family: "Noto Sans Mono", monospace;
       text-transform: uppercase;
-      font-variation-settings: "wght" 350;
+      font-variation-settings: "wght" 400;
       transition: font-variation-settings 0.5s ease;
       padding: 0;
     }
     & #logo-icon {
-      width: 70px;
-      height: 70px;
-      transform: scale(1.2);
-      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      /* border-radius: 50%; */
+      margin-right: 0.2em;
       filter: contrast(200%) brightness(200%);
       transition: --noise-rotation 0.5s ease;
       mix-blend-mode: darken;
-      box-shadow: inset 0px 0px 5px 5px rgba(255, 255, 255, 1);
+      box-shadow: inset 0px 0px 3px 3px rgba(255, 255, 255, 1);
       background: conic-gradient(from var(--noise-rotation) at 50% 50%, rgba(255, 255, 255, 0), rgb(7, 35, 55)),
         url(./noise.svg);
-      margin-right: 0.5em;
       @media (max-width: 40em) {
         display: none;
       }
@@ -110,7 +107,7 @@ header {
   }
 }
 
-#artefact-previews {
+#artifact-previews {
   margin-top: 2em;
   display: grid;
   grid-gap: 1rem;
@@ -119,7 +116,7 @@ header {
     height: 100%;
   }
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  & .artefact-card {
+  & .artifact-card {
     font-family: "Canela Text Trial", serif;
     line-height: 1em;
     background-color: #fcfbf7;
@@ -165,7 +162,7 @@ header {
   }
 }
 
-.artefact-full {
+.artifact-full {
   max-width: 50em;
   margin: auto;
   & img {

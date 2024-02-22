@@ -23,3 +23,10 @@ h5,
 h6 {
   margin-bottom: 1rem;
 }
+li {
+  margin-bottom: 0em;
+}
+
+p {
+  margin-bottom: 1em;
+}
